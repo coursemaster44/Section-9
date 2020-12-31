@@ -100,3 +100,65 @@ $ ./node_modules/.bin/env-cmd -f ./.env.dev node app.js
 ```
 
 # End of lab
+
+# 7-postman-api-config
+
+**Step 1.Open terminal in Visual Studio code**
+- Run the following command to start the application
+```
+$ ./node_modules/.bin/env-cmd -f ./.env.dev node app.js
+```
+
+**Step 2.Open Postman Tool**
+- Goto Collections>New Collection 
+  - Give Name - crud-app
+**Step 3.Click on crud-app>...>Add Request**
+- Request name - "createTable"
+- Click Save to crud-app
+
+**Step 4.Click on crud-app>...>Add Request**
+- Request name - "insertData"
+- Click Save to crud-app
+
+**Step 5.Click on crud-app>...>Add Request**
+- Request name - "readData"
+- Click Save to crud-app
+
+**Step 6.Click on crud-app>...>Add Request**
+- Request name - "updateData"
+- Click Save to crud-app
+
+**Step 7.Click on crud-app>...>Add Request**
+- Request name - "deleteData"
+- Click Save to crud-app
+
+**Step 8.Click on crud-app>...>Add Request**
+- Request name - "deleteTable"
+- Click Save to crud-app
+
+**Step 9.Click on createTable**
+- Select POST from drop-down list
+- Give URl---http://localhost:3000/createTable
+- Select Body>raw>json>paste the following data
+```sh
+  {
+    "TableName" : "Movies",
+    "KeySchema": [       
+        { "AttributeName": "year", "KeyType": "HASH"},
+        { "AttributeName": "title", "KeyType": "RANGE" }
+    ],
+    "AttributeDefinitions": [       
+        { "AttributeName": "year", "AttributeType": "N" },
+        { "AttributeName": "title", "AttributeType": "S" }
+    ],
+    "ProvisionedThroughput": {       
+        "ReadCapacityUnits": 1, 
+        "WriteCapacityUnits": 1
+    }
+}
+```
+....................to be contd.
+
+
+
+
