@@ -239,6 +239,88 @@ $ ./node_modules/.bin/env-cmd -f ./.env.dev node app.js
 ```
 # End of Lab
 
+# 8-api-test-and-npm-start-lab
+
+**Step 1.Open terminal in Visual Studio code**
+Run the following commands-
+$ ./node_modules/.bin/env-cmd -f ./.env.dev node app.js
+
+**Step 2.Open Postman Tool**
+- crud-app>createTable
+ Click on Send
+ 
+**Step 3.Check the Table created in DynamoDB**
+- Goto -AWS Console>DynamoDB>Tables
+- Movies table created
+
+
+**Step 4.Open Postman Tool**
+- crud-app>insertData
+ Click on Send
+
+**Step 5.Check the Table data is inserted in DynamoDB**
+- Goto -AWS Console>DynamoDB>Tables>Movies>Items>1997
+- data is inserted
+
+**Step 6.Open Postman Tool**
+- crud-app>updateData
+ Click on Send
+ 
+ **Step 7.Check the Table data is updated in DynamoDB**
+- Goto -AWS Console>DynamoDB>Tables>Movies>Items>1997>info>actors
+- Items data updated
+
+**Step 8.Open Postman Tool**
+- crud-app>deleteData
+ Click on Send
+
+**Step 9.Check the data is deleted in DynamoDB**
+- Goto -AWS Console>DynamoDB>Tables>Movies>Items
+- item is deleted
+
+**Step 10.Open Postman Tool**
+- crud-app>deleteTable
+ Click on Send
+
+**Step 11.Check the Table is deleted in DynamoDB**
+- Goto -AWS Console>DynamoDB>Tables
+  - No table is there
+
+# Now crud application is ready
+
+**Step 12.To Install pm2 run the following commands**
+```sh
+$ sudo npm i pm2 -g
+$ sudo pm2 update
+$ sudo ./node_modules/.bin/env-cmd -f ./.env.dev pm2 start -f app.js
+```
+
+**Step 13.Open browser localhost:3000**
+- It is working
+
+**Step 14.Run the following commands**
+```sh
+$ pm2 delete all
+$ sudo ./node_modules/.bin/env-cmd -f ./.env.dev pm2 start -f app.js
+```
+**Step 15.Goto Postman tool and click on Apis**
+- Click on createTable
+- Click on insertData
+- Click on readData
+- Click on updateData
+- Click on deleteData
+- Click on deleteTable
+
+**Step 16.Open Terminal and add script:**
+- "start":"./node_modules/.bin/env-cmd -f ./.env.dev pm2 start -f app.js"
+
+**Step 17.Run the following commands**
+```sh
+$ pm2 stop 0
+$ npm start
+```
+
+# End of lab
 
 
 
