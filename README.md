@@ -286,8 +286,6 @@ $ ./node_modules/.bin/env-cmd -f ./.env.dev node app.js
 - Goto -AWS Console>DynamoDB>Tables
   - No table is there
 
-# Now crud application is ready
-
 **Step 12.To Install pm2 run the following commands**
 ```sh
 $ sudo npm i pm2 -g
