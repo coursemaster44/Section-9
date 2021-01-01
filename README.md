@@ -242,9 +242,10 @@ $ ./node_modules/.bin/env-cmd -f ./.env.dev node app.js
 # 8-api-test-and-npm-start-lab
 
 **Step 1.Open terminal in Visual Studio code**
-Run the following commands-
+- Run the following command-
+```
 $ ./node_modules/.bin/env-cmd -f ./.env.dev node app.js
-
+```
 **Step 2.Open Postman Tool**
 - crud-app>createTable
  Click on Send
