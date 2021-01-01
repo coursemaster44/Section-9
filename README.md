@@ -157,7 +157,88 @@ $ ./node_modules/.bin/env-cmd -f ./.env.dev node app.js
     }
 }
 ```
-....................to be contd.
+**Step 10.Click on insertData**
+- Select POST from drop-down list
+- Give URl---http://localhost:3000/insertData
+- Select Body>raw>json>paste the following data
+```sh
+{
+    "TableName":"Movies",
+    "Item":{
+        "year": 1997,
+        "title": "As good as it gets",
+        "info":{
+            "plot": "A bigoted compulsive writer falls in love",
+            "rating": 7.7
+        }
+    }
+}
+```
+**Step 11.Click on readData**
+- Select POST from drop-down list
+- Give URl---http://localhost:3000/readData
+- Select Body>raw>json>paste the following data
+```sh
+{
+    "TableName":"Movies",
+    "Key":{
+        "year": 1997,
+        "title": "As good as it gets",
+        }
+    }
+```
+**Step 12.Click on updateData**
+- Select POST from drop-down list
+- Give URl---http://localhost:3000/updateData
+- Select Body>raw>json>paste the following data
+```sh
+{
+    "TableName":"Movies",
+    "Key":{
+        "year": 1997,
+        "title": "As good as it gets"
+		
+        },
+		"UpdateExpresssion:"set info.rating = :r, info.plot=:p, info.actors=:a",
+		"ExpressionAttribute Values":{
+		":r":9.5;
+		":p":Everything happens all at once.",
+		":a":[Jack Nicholson","Helen Hunt"]
+		
+		},
+		"ReturnValues":"UPDATED_NEW"
+		
+    }
+```
+**Step 13.Click on deleteItem**
+- Select POST from drop-down list
+- Give URl---http://localhost:3000/deleteItem
+- Select Body>raw>json>paste the following data
+```sh
+{
+    "TableName":"Movies",
+    "Key":{
+        "year": 1997,
+        "title": "As good as it gets"
+		
+      },
+    "ConditionExpression": "info.rating <= :val",
+	"ExpressionAttributeValues":{
+	":val":10
+	}
+}
+```
+**Step 14.Click on deleteTable**
+- Select POST from drop-down list
+- Give URl---http://localhost:3000/deleteTable
+- Select Body>raw>json>paste the following data
+```sh
+{
+    "TableName":"Movies",
+}
+```
+# End of Lab
+
 
 
 
